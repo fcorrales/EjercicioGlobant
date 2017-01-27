@@ -18,7 +18,16 @@ namespace Ejercicio.WinForm
 
         public IList<CiudadConexion> CiudadConexionList;
 
-        public IList<Ciudad> CiudadList;
+        CombiVehiculo CombiVehiculo;
+
+        TaxiVehiculo TaxiVehiculo;
+
+        MicroVehiculo MicroVehiculo;
+
+        /// <summary>
+        /// Diccionario de Ciudad compuesto por nombre y cantidad de visitantes
+        /// </summary>
+        Dictionary<string, int> Ciudad;
 
         public int TiempoTotal;
     
@@ -34,24 +43,18 @@ namespace Ejercicio.WinForm
 
             CiudadConexionList = new List<CiudadConexion>();
 
-            CiudadList = new List<Ciudad>();
+            Ciudad = new Dictionary<string, int>();
+
+            CombiVehiculo = new CombiVehiculo();
+
+            TaxiVehiculo = new TaxiVehiculo();
+
+            MicroVehiculo = new MicroVehiculo();
 
             TiempoTotal = 0;
         }
 
-        private void btnCiudades_Click(object sender, EventArgs e)
-        {
-            procesarArchivoCiudades();
-            validaArchivoCiudades();
-        }
-
-        private void btnViajes_Click(object sender, EventArgs e)
-        {
-            procesarArchivoViaje();
-            validaArchivoViajes();
-        }
-
-        private void procesarArchivoCiudades()
+        private void ProcesarArchivoCiudades()
         {
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -66,7 +69,7 @@ namespace Ejercicio.WinForm
                     string[] palabras = linea.Split(',');
 
                     if (palabras.Count() != 4)
-                        throw new InvalidOperationException("El formato del archivo de ciudades no es el correcto");
+                        throw new Exception("El formato del archivo de ciudades no es el correcto");
 
                     CiudadConexionList.Add(new CiudadConexion(palabras[0], palabras[1], Convert.ToInt32(palabras[2]), palabras[3]));
                 }
@@ -75,7 +78,7 @@ namespace Ejercicio.WinForm
             }
         }
 
-        private void procesarArchivoViaje()
+        private void ProcesarArchivoViaje()
         {
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -90,7 +93,7 @@ namespace Ejercicio.WinForm
                     string[] palabras = linea.Split(',');
 
                     if (palabras.Count() < 4)
-                        throw new InvalidOperationException("El formato del archivo de viajes no es el correcto");
+                        throw new Exception("El formato del archivo de viajes no es el correcto");
 
                     Viaje viaje = new Viaje(palabras[0], Convert.ToInt32(palabras[1]));
 
@@ -110,19 +113,46 @@ namespace Ejercicio.WinForm
             lblMensajeArchivoViajes.Text = CAMPO_OBLIGATORIO;
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-            if (validaArchivoCiudades() && validaArchivoViajes())
-            {
-                procesarViajes();
-                mostrarInforme();
-            }
-        }
-
-        private void procesarViajes()
+        // Se comenta este código y se deja el método indicado abajo. Es el mismo código con diferencia que el otro utiliza paralelismo
+        /*private void ProcesarViajes()
         {
             int i;
             foreach (Viaje viaje in ViajeList)
+            {
+                i = 0;
+                CiudadConexion ciudadConexion;  
+                while (i < viaje.NombreCiudadesList.Count() && viaje.EsValido)
+                {
+                    if (i < (viaje.NombreCiudadesList.Count() - 1))
+                    {
+                        ciudadConexion = GetCiudadConexionByCiudad1andCiudad2(viaje.NombreCiudadesList[i], viaje.NombreCiudadesList[i + 1]);
+                        viaje.EsValido = (ciudadConexion != null && TipoViaValida(ciudadConexion.NombreTipoVia, viaje.NombreTipoVehiculo));
+                        if (viaje.EsValido)
+                        {
+                            TiempoTotal += ciudadConexion.Tiempo;
+
+                            if (!Ciudad.ContainsKey(ciudadConexion.NombreCiudad1))  
+                                Ciudad.Add(ciudadConexion.NombreCiudad1, viaje.CantidadPasajeros);
+                            else
+                                Ciudad[ciudadConexion.NombreCiudad1] += viaje.CantidadPasajeros;
+                            
+                            // Grabo solo el ultimo registro de la lista de ciudades.
+                            if (i == (viaje.NombreCiudadesList.Count() - 2))
+                                if (!Ciudad.ContainsKey(ciudadConexion.NombreCiudad2))
+                                    Ciudad.Add(ciudadConexion.NombreCiudad2, viaje.CantidadPasajeros);
+                                else
+                                    Ciudad[ciudadConexion.NombreCiudad2] += viaje.CantidadPasajeros;
+                        }
+                    }                       
+                    i++;
+                }         
+            }
+        }*/
+
+        private void ProcesarViajes()
+        {
+            int i;
+            Parallel.ForEach(ViajeList, viaje =>
             {
                 i = 0;
                 CiudadConexion ciudadConexion;
@@ -130,92 +160,42 @@ namespace Ejercicio.WinForm
                 {
                     if (i < (viaje.NombreCiudadesList.Count() - 1))
                     {
-                        ciudadConexion = getCiudadConexionByCiudad1andCiudad2(viaje.NombreCiudadesList[i], viaje.NombreCiudadesList[i + 1]);
-                        viaje.EsValido = (ciudadConexion != null && !existeRestriccionTipoViaVehiculo(ciudadConexion.NombreTipoVia, viaje.NombreTipoVehiculo));
+                        ciudadConexion = GetCiudadConexionByCiudad1andCiudad2(viaje.NombreCiudadesList[i], viaje.NombreCiudadesList[i + 1]);
+                        viaje.EsValido = (ciudadConexion != null && TipoViaValida(ciudadConexion.NombreTipoVia, viaje.NombreTipoVehiculo));
                         if (viaje.EsValido)
                         {
                             TiempoTotal += ciudadConexion.Tiempo;
 
-                            if (!actualizaCiudad(CiudadList, ciudadConexion.NombreCiudad1, viaje.CantidadPasajeros))
-                                CiudadList.Add(new Ciudad(ciudadConexion.NombreCiudad1, viaje.CantidadPasajeros));
-                            
+                            if (!Ciudad.ContainsKey(ciudadConexion.NombreCiudad1))
+                                Ciudad.Add(ciudadConexion.NombreCiudad1, viaje.CantidadPasajeros);
+                            else
+                                Ciudad[ciudadConexion.NombreCiudad1] += viaje.CantidadPasajeros;
+
                             // Grabo solo el ultimo registro de la lista de ciudades.
                             if (i == (viaje.NombreCiudadesList.Count() - 2))
-                                if (!actualizaCiudad(CiudadList, ciudadConexion.NombreCiudad2, viaje.CantidadPasajeros))
-                                    CiudadList.Add(new Ciudad(ciudadConexion.NombreCiudad2, viaje.CantidadPasajeros));
+                                if (!Ciudad.ContainsKey(ciudadConexion.NombreCiudad2))
+                                    Ciudad.Add(ciudadConexion.NombreCiudad2, viaje.CantidadPasajeros);
+                                else
+                                    Ciudad[ciudadConexion.NombreCiudad2] += viaje.CantidadPasajeros;
                         }
-                    }                       
+                    }
                     i++;
-                }         
-            }
-        }
-
-        private bool actualizaCiudad(IList<Ciudad> ciudadList, string NombreCiudad, int cantidadPasajeros)
-        {
-            if (ciudadList != null && ciudadList.Count > 0)
-            {
-                foreach (Ciudad ciudad in ciudadList)
-                {
-                    if (ciudad.Nombre == NombreCiudad)
-                    {
-                        ciudad.CantidadVisitantes += cantidadPasajeros;
-                        return true;
-                    }
                 }
-            }
-            return false;
+            });
         }
 
-        private void mostrarInforme()
+        private bool TipoViaValida(string tipoVia, string tipoVehiculo)
         {
-            Console.WriteLine("Tiempo total de viajes:" + Convert.ToString(TiempoTotal));
-
-            foreach (Ciudad ciudad in CiudadList)
+            switch (tipoVehiculo)
             {
-                Console.WriteLine("Cantidad de pasajeros con destino " + ciudad.Nombre +": " + Convert.ToString(ciudad.CantidadVisitantes));
+                case "combi": return CombiVehiculo.TipoViaValida(tipoVia);
+                case "taxi": return TaxiVehiculo.TipoViaValida(tipoVia);
+                case "micro": return MicroVehiculo.TipoViaValida(tipoVia);
+                default: return false;        
             }
         }
 
-        private bool existeRestriccionTipoViaVehiculo(string tipoVia, string tipoVehiculo)
-        {
-            IList<RestriccionTransito> restriccionTransitoList = new List<RestriccionTransito>();
-            restriccionTransitoList = getRestriccionTransitoList();
-
-            if (restriccionTransitoList != null && restriccionTransitoList.Count > 0)
-            {
-                foreach (RestriccionTransito rt in restriccionTransitoList)
-                {
-                    if (rt.NombreTipoVehiculo == tipoVehiculo)
-                    {
-                        if (rt.NombreTipoViaList != null && rt.NombreTipoViaList.Count > 0)
-                        {
-                            foreach (string nombreTipoVia in rt.NombreTipoViaList)
-                            {
-                                if (nombreTipoVia == tipoVia)
-                                    return true;
-                            }
-                        }
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Restricciones del enunciado para los tipo de vehiculo
-        /// </summary>
-        private IList<RestriccionTransito> getRestriccionTransitoList()
-        {
-            IList<RestriccionTransito> RestriccionTransitoList = new List<RestriccionTransito>();
-
-            RestriccionTransitoList.Add(new RestriccionTransito("micros", new List<string> { "autopistas", "calle" }));
-            RestriccionTransitoList.Add(new RestriccionTransito("combis", new List<string> { "calle" }));
-            RestriccionTransitoList.Add(new RestriccionTransito("taxi", null));
-            return RestriccionTransitoList;
-        }
-
-        private CiudadConexion getCiudadConexionByCiudad1andCiudad2(string nombreCiudad1, string nombreCiudad2)
+        private CiudadConexion GetCiudadConexionByCiudad1andCiudad2(string nombreCiudad1, string nombreCiudad2)
         {
             int i = 0;
             while ((i < CiudadConexionList.Count()))
@@ -228,7 +208,17 @@ namespace Ejercicio.WinForm
             return null;
         }
 
-        private bool validaArchivoCiudades()
+        private void MostrarInforme()
+        {
+            Console.WriteLine("Tiempo total de viajes:" + Convert.ToString(TiempoTotal));
+
+            foreach (KeyValuePair<string, int> ciudad in Ciudad)
+            {
+                Console.WriteLine("Cantidad de pasajeros con destino {0}: {1}", ciudad.Key, ciudad.Value);
+            }
+        }
+
+        private bool ValidaArchivoCiudades()
         {
             if (CiudadConexionList.Count() <= 0)
             {
@@ -242,7 +232,7 @@ namespace Ejercicio.WinForm
             }
          }
 
-        private bool validaArchivoViajes()
+        private bool ValidaArchivoViajes()
         {
             if (ViajeList.Count() <= 0)
             {
@@ -255,5 +245,29 @@ namespace Ejercicio.WinForm
                 return true;
             }
         }
+
+        #region Eventos controles
+
+        private void BtnCiudades_Click(object sender, EventArgs e)
+        {
+            ProcesarArchivoCiudades(); 
+            ValidaArchivoCiudades();
+        }
+
+        private void BtnViajes_Click(object sender, EventArgs e)
+        {
+            ProcesarArchivoViaje();
+            ValidaArchivoViajes();
+        }
+
+        private void BtnAceptar_Click(object sender, EventArgs e)
+        {
+            if (ValidaArchivoCiudades() && ValidaArchivoViajes())
+            {
+                ProcesarViajes();
+                MostrarInforme();
+            }
+        }
+        #endregion
     }
 }

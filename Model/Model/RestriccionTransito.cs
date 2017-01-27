@@ -14,8 +14,8 @@ namespace Ejercicio.Model
 
         public RestriccionTransito(string nombreTipoVehiculo, List<string> nombreTipoViaList)
         {
-            this.NombreTipoVehiculo = nombreTipoVehiculo;
-            this.NombreTipoViaList = nombreTipoViaList;
+            NombreTipoVehiculo = nombreTipoVehiculo;
+            NombreTipoViaList = nombreTipoViaList;
         }
     }
 }

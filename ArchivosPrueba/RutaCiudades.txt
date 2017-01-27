@@ -1,0 +1,5 @@
+A,B,15,ruta
+B,C,20,autopista
+C,D,30,calle
+A,C,45,avenida
+A,D,60,ruta

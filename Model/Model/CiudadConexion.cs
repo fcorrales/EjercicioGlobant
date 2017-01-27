@@ -16,12 +16,12 @@ namespace Ejercicio.Model
 
         public string NombreTipoVia { get; set; }
 
-        public CiudadConexion(string NombreCiudad1, string NombreCiudad2, int Tiempo, string NombreTipoVia)
+        public CiudadConexion(string nombreCiudad1, string nombreCiudad2, int tiempo, string nombreTipoVia)
         {
-            this.NombreCiudad1 = NombreCiudad1;
-            this.NombreCiudad2 = NombreCiudad2;
-            this.Tiempo = Tiempo;
-            this.NombreTipoVia = NombreTipoVia;
+            NombreCiudad1 = nombreCiudad1;
+            NombreCiudad2 = nombreCiudad2;
+            Tiempo = tiempo;
+            NombreTipoVia = nombreTipoVia;
         }
     }
 }

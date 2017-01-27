@@ -3,3 +3,12 @@ C:\Users\Federico\Documents\Visual Studio 2015\Projects\Ejercicio\Model\bin\Debu
 C:\Users\Federico\Documents\Visual Studio 2015\Projects\Ejercicio\Model\obj\Debug\Ejercicio.Model.csprojResolveAssemblyReference.cache
 C:\Users\Federico\Documents\Visual Studio 2015\Projects\Ejercicio\Model\obj\Debug\Model.dll
 C:\Users\Federico\Documents\Visual Studio 2015\Projects\Ejercicio\Model\obj\Debug\Model.pdb
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\Model\bin\Debug\Model.dll
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\Model\bin\Debug\Model.pdb
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\Model\obj\Debug\Model.dll
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\Model\obj\Debug\Model.pdb
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\Model\bin\Debug\Model.dll
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\Model\bin\Debug\Model.pdb
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\Model\obj\Debug\Ejercicio.Model.csprojResolveAssemblyReference.cache
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\Model\obj\Debug\Model.dll
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\Model\obj\Debug\Model.pdb

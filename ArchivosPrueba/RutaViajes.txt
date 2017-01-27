@@ -1,0 +1,5 @@
+micro,29,A,B
+taxi,4,A,B
+taxi,3,C,D
+taxi,2,B,C,D,A
+combi,15,B,A

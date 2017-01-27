@@ -16,12 +16,12 @@ namespace Ejercicio.Model
 
         public IList<string> NombreCiudadesList;
 
-        public Viaje(string NombreTipoVehiculo, int CantidadPasajeros)
+        public Viaje(string nombreTipoVehiculo, int cantidadPasajeros)
         {
-            this.NombreTipoVehiculo = NombreTipoVehiculo;
-            this.CantidadPasajeros = CantidadPasajeros;
-            this.NombreCiudadesList = new List<string>();
-            this.EsValido = true;
+            NombreTipoVehiculo = nombreTipoVehiculo;
+            CantidadPasajeros = cantidadPasajeros;
+            NombreCiudadesList = new List<string>();
+            EsValido = true;
         }
     }
 }

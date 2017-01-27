@@ -28,42 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCiudades = new System.Windows.Forms.Button();
-            this.btnViajes = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
+            this.f = new System.Windows.Forms.Button();
+            this.BtnViajes = new System.Windows.Forms.Button();
+            this.BtnAceptar = new System.Windows.Forms.Button();
             this.lblMensajeArchivoCiudades = new System.Windows.Forms.Label();
             this.lblMensajeArchivoViajes = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnCiudades
+            // f
             // 
-            this.btnCiudades.Location = new System.Drawing.Point(64, 95);
-            this.btnCiudades.Name = "btnCiudades";
-            this.btnCiudades.Size = new System.Drawing.Size(213, 51);
-            this.btnCiudades.TabIndex = 0;
-            this.btnCiudades.Text = "Abrir archivo de ciudades";
-            this.btnCiudades.UseVisualStyleBackColor = true;
-            this.btnCiudades.Click += new System.EventHandler(this.btnCiudades_Click);
+            this.f.Location = new System.Drawing.Point(64, 95);
+            this.f.Name = "f";
+            this.f.Size = new System.Drawing.Size(213, 51);
+            this.f.TabIndex = 0;
+            this.f.Text = "Abrir archivo de ciudades";
+            this.f.UseVisualStyleBackColor = true;
+            this.f.Click += new System.EventHandler(this.BtnCiudades_Click);
             // 
-            // btnViajes
+            // BtnViajes
             // 
-            this.btnViajes.Location = new System.Drawing.Point(64, 191);
-            this.btnViajes.Name = "btnViajes";
-            this.btnViajes.Size = new System.Drawing.Size(213, 51);
-            this.btnViajes.TabIndex = 1;
-            this.btnViajes.Text = "Abrir archivo de viajes";
-            this.btnViajes.UseVisualStyleBackColor = true;
-            this.btnViajes.Click += new System.EventHandler(this.btnViajes_Click);
+            this.BtnViajes.Location = new System.Drawing.Point(64, 191);
+            this.BtnViajes.Name = "BtnViajes";
+            this.BtnViajes.Size = new System.Drawing.Size(213, 51);
+            this.BtnViajes.TabIndex = 1;
+            this.BtnViajes.Text = "Abrir archivo de viajes";
+            this.BtnViajes.UseVisualStyleBackColor = true;
+            this.BtnViajes.Click += new System.EventHandler(this.BtnViajes_Click);
             // 
-            // btnAceptar
+            // BtnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(524, 279);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(213, 51);
-            this.btnAceptar.TabIndex = 2;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.BtnAceptar.Location = new System.Drawing.Point(524, 279);
+            this.BtnAceptar.Name = "BtnAceptar";
+            this.BtnAceptar.Size = new System.Drawing.Size(213, 51);
+            this.BtnAceptar.TabIndex = 2;
+            this.BtnAceptar.Text = "Aceptar";
+            this.BtnAceptar.UseVisualStyleBackColor = true;
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // lblMensajeArchivoCiudades
             // 
@@ -71,18 +71,18 @@
             this.lblMensajeArchivoCiudades.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)), true);
             this.lblMensajeArchivoCiudades.Location = new System.Drawing.Point(318, 110);
             this.lblMensajeArchivoCiudades.Name = "lblMensajeArchivoCiudades";
-            this.lblMensajeArchivoCiudades.Size = new System.Drawing.Size(203, 20);
+            this.lblMensajeArchivoCiudades.Size = new System.Drawing.Size(209, 20);
             this.lblMensajeArchivoCiudades.TabIndex = 3;
-            this.lblMensajeArchivoCiudades.Text = "lblMensajeArchivoCiudades";
+            this.lblMensajeArchivoCiudades.Text = "LblMensajeArchivoCiudades";
             // 
             // lblMensajeArchivoViajes
             // 
             this.lblMensajeArchivoViajes.AutoSize = true;
             this.lblMensajeArchivoViajes.Location = new System.Drawing.Point(318, 206);
             this.lblMensajeArchivoViajes.Name = "lblMensajeArchivoViajes";
-            this.lblMensajeArchivoViajes.Size = new System.Drawing.Size(179, 20);
+            this.lblMensajeArchivoViajes.Size = new System.Drawing.Size(185, 20);
             this.lblMensajeArchivoViajes.TabIndex = 4;
-            this.lblMensajeArchivoViajes.Text = "lblMensajeArchivoViajes";
+            this.lblMensajeArchivoViajes.Text = "LblMensajeArchivoViajes";
             // 
             // Ejercicio
             // 
@@ -91,9 +91,9 @@
             this.ClientSize = new System.Drawing.Size(788, 383);
             this.Controls.Add(this.lblMensajeArchivoViajes);
             this.Controls.Add(this.lblMensajeArchivoCiudades);
-            this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.btnViajes);
-            this.Controls.Add(this.btnCiudades);
+            this.Controls.Add(this.BtnAceptar);
+            this.Controls.Add(this.BtnViajes);
+            this.Controls.Add(this.f);
             this.Name = "Ejercicio";
             this.Text = "Reporte de viajes";
             this.ResumeLayout(false);
@@ -103,9 +103,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnCiudades;
-        private System.Windows.Forms.Button btnViajes;
-        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button f;
+        private System.Windows.Forms.Button BtnViajes;
+        private System.Windows.Forms.Button BtnAceptar;
         private System.Windows.Forms.Label lblMensajeArchivoCiudades;
         private System.Windows.Forms.Label lblMensajeArchivoViajes;
     }

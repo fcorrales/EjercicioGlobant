@@ -9,6 +9,25 @@ C:\Users\Federico\Documents\Visual Studio 2015\Projects\Ejercicio\WinForm\obj\De
 C:\Users\Federico\Documents\Visual Studio 2015\Projects\Ejercicio\WinForm\obj\Debug\Ejercicio.WinForm.csproj.GenerateResource.Cache
 C:\Users\Federico\Documents\Visual Studio 2015\Projects\Ejercicio\WinForm\obj\Debug\Viaje.exe
 C:\Users\Federico\Documents\Visual Studio 2015\Projects\Ejercicio\WinForm\obj\Debug\Viaje.pdb
-C:\Users\fcorrales\Downloads\Ejercicio\Ejercicio\WinForm\bin\Debug\Viaje.exe.config
-C:\Users\fcorrales\Downloads\Ejercicio\Ejercicio\WinForm\obj\Debug\Viaje.exe
-C:\Users\fcorrales\Downloads\Ejercicio\Ejercicio\WinForm\obj\Debug\Viaje.pdb
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\bin\Debug\Viaje.exe.config
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\bin\Debug\Viaje.exe
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\bin\Debug\Viaje.pdb
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\bin\Debug\Model.dll
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\bin\Debug\Model.pdb
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\obj\Debug\Ejercicio.WinForm.csprojResolveAssemblyReference.cache
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\obj\Debug\Viaje.Properties.Resources.resources
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\obj\Debug\Ejercicio.WinForm.Ejercicio.resources
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\obj\Debug\Ejercicio.WinForm.csproj.GenerateResource.Cache
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\obj\Debug\Viaje.exe
+C:\Users\Federico\Desktop\Ejercicio\Ejercicio\WinForm\obj\Debug\Viaje.pdb
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\bin\Debug\Viaje.exe.config
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\obj\Debug\Viaje.exe
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\obj\Debug\Viaje.pdb
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\bin\Debug\Viaje.exe
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\bin\Debug\Viaje.pdb
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\bin\Debug\Model.dll
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\bin\Debug\Model.pdb
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\obj\Debug\Ejercicio.WinForm.csprojResolveAssemblyReference.cache
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\obj\Debug\Viaje.Properties.Resources.resources
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\obj\Debug\Ejercicio.WinForm.Ejercicio.resources
+C:\Users\Federico\Documents\GitHub\EjercicioGlobant\WinForm\obj\Debug\Ejercicio.WinForm.csproj.GenerateResource.Cache
