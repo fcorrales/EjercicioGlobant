@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio.WinForm", "WinFor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio.Model", "Model\Ejercicio.Model.csproj", "{45E5CB87-C4AB-41C6-806B-F001A475895E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio.Test", "Ejercicio.Test\Ejercicio.Test.csproj", "{A82357E3-18DD-4B1D-BFBE-46B98E7E4D38}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio.Test", "Test\Ejercicio.Test.csproj", "{A82357E3-18DD-4B1D-BFBE-46B98E7E4D38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

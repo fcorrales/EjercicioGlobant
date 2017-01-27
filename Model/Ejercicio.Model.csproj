@@ -44,7 +44,6 @@
     <Compile Include="Model\CiudadConexion.cs" />
     <Compile Include="Model\CombiVehiculo.cs" />
     <Compile Include="Model\MicroVehiculo.cs" />
-    <Compile Include="Model\RestriccionTransito.cs" />
     <Compile Include="Model\TaxiVehiculo.cs" />
     <Compile Include="Model\TipoVehiculo.cs" />
     <Compile Include="Model\Viaje.cs" />
